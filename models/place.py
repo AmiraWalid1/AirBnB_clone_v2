@@ -4,6 +4,7 @@ from models.base_model import BaseModel, Base
 from sqlalchemy import Column, Integer, String, ForeignKey, Float
 from sqlalchemy.orm import relationship
 
+
 class Place(BaseModel, Base):
     """ A place to stay """
 
@@ -19,4 +20,5 @@ class Place(BaseModel, Base):
     latitude = Column(Float)
     longitude = Column(Float)
     amenity_ids = []
-    reviews = relationship("Review", back_populate="place", casecade="all, delete, save-update")
+    reviews = relationship("Review", back_populate="place",
+                           casecade="all, delete, save-update")

@@ -21,7 +21,7 @@ class State(BaseModel, Base):
         citiesList = []
         from models.__init__ import storage
         for k, v in storage._FileStorage__objects.items():
-                if k.split('.')[0] == "City":
-                     if v.state_id == self.id:
-                          citiesList.append(v)
+            if k.split('.')[0] == "City":
+                if v.state_id == self.id:
+                    citiesList.append(v)
         return v
