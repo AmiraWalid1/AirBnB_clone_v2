@@ -20,5 +20,5 @@ class Place(BaseModel, Base):
     latitude = Column(Float)
     longitude = Column(Float)
     amenity_ids = []
-    reviews = relationship("Review", back_populate="place",
-                           casecade="all, delete, save-update")
+    reviews = relationship("Review", back_populates="place",
+                           cascade="all, delete, save-update")
