@@ -19,5 +19,3 @@ class Review(BaseModel, Base):
         ForeignKey("users.id", onupdate="CASCADE", ondelete="CASCADE"),
         nullable=False)
     text = Column(String(1024), nullable=False)
-    user = relationship("User", back_populates="reviews")
-    place = relationship("Place", back_populates="reviews")
