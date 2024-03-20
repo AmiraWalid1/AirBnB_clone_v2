@@ -132,15 +132,12 @@ class HBNBCommand(cmd.Cmd):
             for arg in argsList[1:]:
                 keyValueList = arg.split("=")
                 if len(keyValueList) == 2:
-                    print(keyValueList[0])
-                    print(keyValueList[1])
                     if isinstance(keyValueList[1], str):
                         keyValueList[1] = ast.literal_eval(keyValueList[1].rstrip("'"))
                         keyValueList[1] = str(keyValueList[1]).replace("_", " ").replace('"', '\\"')
                     kw[keyValueList[0]] = keyValueList[1]
                 else:
                     continue
-            print(kw)
             new_instance = HBNBCommand.classes[className](**kw)
             new_instance.save()
             print(new_instance.id)
@@ -252,7 +249,7 @@ class HBNBCommand(cmd.Cmd):
     def do_count(self, args):
         """Count current number of class instances"""
         count = 0
-        for k, v in storage._FileStorage__objects.items():
+        for k, v in storage.__objects.items():
             if args == k.split('.')[0]:
                 count += 1
         print(count)
