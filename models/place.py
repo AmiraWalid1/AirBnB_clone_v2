@@ -9,7 +9,7 @@ from models.amenity import Amenity
 
 place_amenity = Table(
     "place_amenity",
-    "Base.metadata",
+    Base.metadata,
     Column("place_id", String(60),
            ForeignKey("places.id"),
            primary_key=True, nullable=False),
